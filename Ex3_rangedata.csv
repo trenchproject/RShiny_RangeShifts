@@ -18,7 +18,7 @@ Study ID ,Taxon,TaxaGroup,Location,Nspecies,Margin,Duration_Years,ObservedShift_
 17,birds,birds,Finland,150,Upper,12,9.3,6.74,-19.6,-0.22,1974_1979-1986_1989
 18,birds,birds,North America,55,Average,31,33.4,14.9,NA,0.63,1967_1971-1998_2002
 19,birds,birds,USA,5,Average,25,46,51.7,36.5,0.48,1971_1995
-20,birds,birds,USA,129,Average,20,3.6,1.5Ê,NA,0.6,1980_1985-2000_2005
+20,birds,birds,USA,129,Average,20,3.6,1.5,NA,0.6,1980_1985-2000_2005
 21,mammals,mammals,UK,9,Upper,25,22.4,38.4,50,0.45,1960_1970-1985_1995
 22,algae,aquatic,Portugal,37,Average,50,61.4,31.6,NA,0.74,1950_1960-2001_2006
 23,intertidal,aquatic,Chile,10,Upper,39,-75.5,120.79,3,0.01,1947_1975-1998_2000
