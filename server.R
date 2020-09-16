@@ -39,7 +39,7 @@ shinyServer(function(input, output) {
     
     depthPlot <- ggplot(data = df, aes(x = obsdepth1, y = gamhdepth1)) +
       geom_point() + 
-      xlab("Thermal envelope shift (°N/yr)") + ylab("Taxon shift (°N/yr)") +
+      xlab("Thermal envelope shift (m/yr)") + ylab("Taxon shift (m/yr)") +
       theme_bw(base_size = 16) + geom_abline(intercept=0, slope=1, col='red')
     
     grid.arrange(latPlot, depthPlot, ncol=2)
