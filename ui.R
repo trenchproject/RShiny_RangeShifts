@@ -34,9 +34,6 @@ shinyUI <- fluidPage(
     )
   ),
 
-  hr(),
-  
-  includeMarkdown("include2.md"),
   
   hr()
 
