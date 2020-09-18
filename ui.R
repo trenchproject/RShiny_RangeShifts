@@ -24,13 +24,11 @@ shinyUI <- fluidPage(
       uiOutput("organisms"),
       hr(),
       uiOutput("regionInput"),
-      p("still working on regions"),
       width=3
     ),
     
     mainPanel(
       radioGroupButtons("switch", choices = c("Latitude", "Depth"), size = "sm", status = "warning"),
-      #plotOutput("RangeShift"),
       plotlyOutput("Rangeshift"),
       width=9
     )

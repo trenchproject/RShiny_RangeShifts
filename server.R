@@ -96,32 +96,54 @@ shinyServer(function(input, output) {
   })
   
   # Still working on it
-  # df_refilter <- reactive({
-  #   validate(
-  #     need(input$region, "")
-  #   )
-  #   if(input$region != "All") {
-  #     filter(df_filter(), regions[which(input$region %in% regions)])
-  #   } else {
-  #     df_filter()
-  #   }
-  # })
+  df_refilter <- reactive({
+    validate(
+      need(input$region, "")
+    )
+    if(input$region != "All") {
+      filter(df_filter(), region %in% names(regions)[which(regions %in% input$region)])
+    } else {
+      df_filter()
+    }
+  })
   
   output$Rangeshift <- renderPlotly({
+    validate(
+      need(df_refilter(), "")
+    )
+    print(paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa"]), "</br>"))
+
     if (input$switch == "Latitude") {
       fig <- plot_ly() %>%
-        add_trace(data = df_filter(), x = ~ obslat1, y = ~ gamhlat1, name = "Data points", type = "scatter", mode = "markers") %>%
-        add_trace(x = c(min(df$obslat1), max(df$obslat1)), y = c(min(df$obslat1), max(df$obslat1)), name = "1:1 line", type = "scatter", mode = "lines") %>%
+        add_trace(data = df_refilter(), 
+                  x = ~ obslat1, 
+                  y = ~ gamhlat1, 
+                  name = "Data points", 
+                  type = "scatter", 
+                  mode = "markers",
+                  text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa"]), "<br>"),
+                  hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
+        add_trace(x = c(min(df$obslat1), max(df$obslat1)), 
+                  y = c(min(df$obslat1), max(df$obslat1)), 
+                  name = "1:1 line", 
+                  type = "scatter", 
+                  mode = "lines") %>%
         layout(xaxis = list(title = "Thermal envelope shift (°N/yr)"),
                yaxis = list(title = "Taxon shift (°N/yr)"))
     } else {
       fig <- plot_ly() %>%
-        add_trace(data = df_filter(), x = ~ obsdepth1, y = ~ gamhdepth1, name = "Data points", type = "scatter") %>%
+        add_trace(data = df_refilter(), 
+                  x = ~ obsdepth1, 
+                  y = ~ gamhdepth1, 
+                  name = "Data points", 
+                  type = "scatter", 
+                  mode = "markers",
+                  text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa"]), "</br>"),
+                  hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
         add_trace(x = c(min(df$obsdepth1), max(df$obsdepth1)), y = c(min(df$obsdepth1), max(df$obsdepth1)), name = "1:1 line", type = "scatter", mode = "lines") %>%
         layout(xaxis = list(title = "Thermal envelope shift (m/yr)"),
                yaxis = list(title = "Taxon shift (m/yr)"))
     }
-    fig
   })
   
   
