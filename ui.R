@@ -4,10 +4,11 @@
 library(shiny)
 library(tidyverse)
 library(gridExtra)
+library(plotly)
+library(shinyWidgets)
 
 #specify choices
-taxa= c("All","Fish","Mammals","Invertebrates")
-
+taxa = c("All", "Fish", "Mollusks" = "mollusks", "Crustaceans", "Starfish" = "starfish", "Brittle stars" = "brittle")
 # Define UI 
 shinyUI <- fluidPage(  
   title = "Range shifts",
@@ -19,11 +20,18 @@ shinyUI <- fluidPage(
   # Visualization of expected vs observed range shifts
   sidebarLayout(
     sidebarPanel(
-      selectInput("taxa", "Select taxa", choices = taxa),
+      pickerInput("taxa", "Select taxa", choices = taxa),
+      uiOutput("organisms"),
+      hr(),
+      uiOutput("regionInput"),
+      p("still working on regions"),
       width=3
     ),
+    
     mainPanel(
-      plotOutput("RangeShift"),
+      radioGroupButtons("switch", choices = c("Latitude", "Depth"), size = "sm", status = "warning"),
+      #plotOutput("RangeShift"),
+      plotlyOutput("Rangeshift"),
       width=9
     )
   ),
