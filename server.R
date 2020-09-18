@@ -128,7 +128,7 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        layout(xaxis = list(title = "Thermal envelope shift (°N/yr)", range = c(-0.3,0.3)),
+        layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.3,0.3)),
                yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15,0.15)))
     } else {
       fig <- plot_ly() %>%
@@ -141,7 +141,7 @@ shinyServer(function(input, output) {
                   text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa"]), "</br>"),
                   hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
         add_trace(x = c(min(df$obsdepth1), max(df$obsdepth1)), y = c(min(df$obsdepth1), max(df$obsdepth1)), name = "1:1 line", type = "scatter", mode = "lines") %>%
-        layout(xaxis = list(title = "Thermal envelope shift (m/yr)", range = c(-8,8)),
+        layout(xaxis = list(title = "Climate velocity (m/yr)", range = c(-8,8)),
                yaxis = list(title = "Observed population range shift (m/yr)", range = c(-8,8)))
     }
   })
