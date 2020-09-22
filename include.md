@@ -8,10 +8,15 @@ output: html_document
 ## Range Shifts: How Marine Taxa Track A Shifting Climate
 
 Adapted from [Marine Taxa Track Local Climate Velocities.](https://science.sciencemag.org/content/341/6151/1239)   
+*Image source: Food and Environment Reporting Network*    
 
 #### [Back to TrEnCh-Ed](https://trench-ed.github.io/#)   
 
 ### M.A.D. - Move, Adapt, or Die
+
+<p>
+<img src="https://thefern.org/wp-content/uploads/2019/05/Full-Spread1-Featured.png"/, height="250 px", align="right">
+</p>
 
 Global warming has created shifting environmental conditions for populations of organisms. Previously suitable ranges have become unsuitable. Organisms respond in one of three ways when faced with their climate changing: moving to a more suitable location, adapting to the new climate, or dying. In this visualization, we will focus on organisms moving to “follow” their suitable climate as it shifts.     
 
@@ -26,6 +31,8 @@ It’s important to remember that organisms don’t respond to global trends, th
 For marine life, suitable microclimates are often referred to as “thermal envelopes.” This thermal envelope encompases the three-dimensional space in the water in which the temperature is suitable for that population to live (latitude, longitude, depth). The movement of that thermal envelope is it’s climate velocity. Climate velocities are up to seven times higher in the ocean than on land.    
 
 In the ocean, currents and tides play a large role in the differences between populations' climate velocities. A lobster in the northeast with calm waters may have its thermal envelope’s climate velocity slowly headed poleward, whereas a big skate on the west coast near a strong ocean current may have its thermal envelope’s climate velocity headed quickly south. Some populations find their thermal envelope remaining stable longitudinally and latitudinally, but moving shallower or deeper.    
+
+There are many reasons why a population’s climate velocity can be moving in an unintuitive direction. Populations that live in gulf or sound waters may find their climate velocity headed towards open waters, which can be in any direction. Populations may be restricted by landmasses to their north and must shift around the landmasses. Likewise, populations may be restricted in depth by shallow waters, and first must migrate to deeper water access. Populations might be near an anthropogenic cooling source -- like a highly air polluted city -- and have their microclimates cooling, or populations may be near strong oceanic currents which prevail over global trends.    
 
 ### The data
 
@@ -44,6 +51,6 @@ This data shows a strong relationship between local climate velocity and marine 
 
 This visualization features two plots. Both show the taxa chosen in the filter on the left side in the region selected. Each data point represents a population of a marine species.    
 
-The latitude plot shows the northern climate velocity of that population’s thermal envelope against the population’s observed northern range shift. The depth plot shows the depth climate velocity of that population’s thermal envelope against the population’s observed depth range shift. The line plotted on each graph is a 1-to-1 line. If a data point lands exactly on the 1-to-1 line, that population shifted exactly as much (degree north or depth) as it’s thermal envelope.
+The latitude plot shows the northern climate velocity of that population’s thermal envelope against the population’s observed northern range shift. Thus, if a data point rests at (1, 0.5) then that population’s thermal envelope has a climate velocity due north at the rate of 1˚N/yr and that population’s actual range is moving north at the rate of 0.5˚N/yr. The depth plot shows the depth climate velocity of that population’s thermal envelope against the population’s observed depth range shift. Positive depth shifts are towards deeper waters. Thus, if a data point rests at (2.5, 3) then that population’s thermal envelope has a climate velocity deeper at the rate of 2.5m/yr and that population’s actual range is moving deeper at the rate of 3m/yr. The line plotted on each graph is a 1-to-1 line. If a data point lands exactly on the 1-to-1 line, that population shifted exactly as much (degree north or depth) as it’s thermal envelope.
 
 
