@@ -36,7 +36,7 @@ In the ocean, currents and tides play a large role in the differences between po
 
   
 
-The data was compiled from four decades of scientific surveys of fish and invertebrates from the continental shelves of North America across nine regions spanning ~3.3 million km2 and 60,394 bottom-trawl samples from 1968 to 2011. These surveys captured 128 million organisms from 580 populations of 360 species or species groups; collectively referred to as “taxa.” Range shifts were measured by tracking the location of the center of population range.    
+The data was compiled from four decades of scientific surveys of fish and invertebrates from the continental shelves of North America across nine regions spanning ~3.3 million km^2 and 60,394 bottom-trawl samples from 1968 to 2011. These surveys captured 128 million organisms from 580 populations of 360 species or species groups; collectively referred to as “taxa”. Range shifts were measured by tracking the location of the center of population range.    
 
 This data shows a strong relationship between local climate velocity and marine range shifts. Across all taxa, 74% shifted latitude in the same direction as climate velocity, and 70% shifted depth in the same direction. This explanatory power was equally high for “non-intuitive” shifts that deviate from the poleward-and-deeper pattern: 73% of shifts to lower latitudes and 75% of shifts toward shallower water were explained by climate velocity.    
 
