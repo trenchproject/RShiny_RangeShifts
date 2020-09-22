@@ -10,9 +10,6 @@ rgb.palette <- colorRampPalette(c("red", "orange", "blue"), space = "rgb")
 
 df <- read.csv("rangeshift.csv")
 
-# Do house  keeping
-dat = read.csv("Ex3_rangedata.csv")
-
 regions = c("AFSC_Aleutians" = "Aleutians", 
             "AFSC_EBS" = "Eastern Bering Sea", 
             "AFSC_GOA" = "Gulf of Alaska", 
