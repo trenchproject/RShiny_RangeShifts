@@ -8,12 +8,19 @@ output: html_document
 ## Range Shifts: How Marine Taxa Track A Shifting Climate
 
 Adapted from [Marine Taxa Track Local Climate Velocities.](https://science.sciencemag.org/content/341/6151/1239)   
+*Image source: Food and Environment Reporting Network*    
 
 #### [Back to TrEnCh-Ed](https://trench-ed.github.io/#)   
 
 ### M.A.D. - Move, Adapt, or Die
 
-Global warming has created shifting environmental conditions for populations of organisms. Previously suitable ranges have become unsuitable. Organisms respond in one of three ways when faced with their climate changing: moving to a more suitable location, adapting to the new climate, or dying. In this visualization, we will focus on organisms moving to “follow” their suitable climate as it shifts.     
+<p>
+<img src="https://thefern.org/wp-content/uploads/2019/05/Full-Spread1-Featured.png"/, height="250 px", align="right">
+</p>
+
+Global warming has created shifting environmental conditions for populations of organisms. Previously suitable ranges have become unsuitable. Organisms respond in one of three ways when faced with their climate changing: moving to a more suitable location, adapting to the new climate, or dying. In this visualization, we will focus on organisms moving to “follow” their suitable climate as it shifts.   
+
+Why do organisms get M.A.D.? Why must marine animals remain in their thermal envelopes? Many fish are sensitive to temperature and their survival depends on them remaining in their specific temperature range. As the water warms, the animals’ cardiovascular systems work harder, until eventually the temperature is above their thermal limits and their metabolism needs too much oxygen. This can cause whole populations to [die of suffocation](https://www.nature.com/news/2007/070101/full/070101-5.html). The problem is exacerbated by algal blooms -- which increase in frequency as temperatures rise -- that stress or even kill fish by clogging their gills with toxins and reducing the oxygen levels of the water. Particularly vulnerable are spawning adults: their cardiovascular systems are already under strain by providing oxygen to their sperm and egg cells. [Another recent study](https://science.sciencemag.org/content/369/6499/65) estimated that if the climate warming was limited to 1.5 degrees Celsius only 10% of fish species will be forced to leave their traditional spawning areas due to rising water temperature, however if climate warming continues on its current trend to 5 degrees Celsius or more it will endanger 60% of all fish species. Warmer oceans could lead to the loss of billions of marine fish: The National Academy of Sciences reports in a [recent study](https://www.pnas.org/content/116/26/12907) that the total mass of sea animals is projected to drop by 5% for every 1.8°F of ocean warming.      
 
 ### Shifting ranges and the importance of microclimate
 
@@ -26,6 +33,8 @@ It’s important to remember that organisms don’t respond to global trends, th
 For marine life, suitable microclimates are often referred to as “thermal envelopes.” This thermal envelope encompases the three-dimensional space in the water in which the temperature is suitable for that population to live (latitude, longitude, depth). The movement of that thermal envelope is it’s climate velocity. Climate velocities are up to seven times higher in the ocean than on land.    
 
 In the ocean, currents and tides play a large role in the differences between populations' climate velocities. A lobster in the northeast with calm waters may have its thermal envelope’s climate velocity slowly headed poleward, whereas a big skate on the west coast near a strong ocean current may have its thermal envelope’s climate velocity headed quickly south. Some populations find their thermal envelope remaining stable longitudinally and latitudinally, but moving shallower or deeper.    
+
+There are many reasons why a population’s climate velocity can be moving in an unintuitive direction. Populations that live in gulf or sound waters may find their climate velocity headed towards open waters, which can be in any direction. Populations may be restricted by landmasses to their north and must shift around the landmasses. Likewise, populations may be restricted in depth by shallow waters, and first must migrate to deeper water access. Populations might be near an anthropogenic cooling source -- like a highly air polluted city -- and have their microclimates cooling, or populations may be near strong oceanic currents which prevail over global trends.    
 
 ### The data
 
@@ -44,6 +53,6 @@ This data shows a strong relationship between local climate velocity and marine 
 
 This visualization features two plots. Both show the taxa chosen in the filter on the left side in the region selected. Each data point represents a population of a marine species.    
 
-The latitude plot shows the northern climate velocity of that population’s thermal envelope against the population’s observed northern range shift. The depth plot shows the depth climate velocity of that population’s thermal envelope against the population’s observed depth range shift. The line plotted on each graph is a 1-to-1 line. If a data point lands exactly on the 1-to-1 line, that population shifted exactly as much (degree north or depth) as it’s thermal envelope.
+The latitude plot shows the northern climate velocity of that population’s thermal envelope against the population’s observed northern range shift. Thus, if a data point rests at (1, 0.5) then that population’s thermal envelope has a climate velocity due north at the rate of 1˚N/yr and that population’s actual range is moving north at the rate of 0.5˚N/yr. The depth plot shows the depth climate velocity of that population’s thermal envelope against the population’s observed depth range shift. Positive depth shifts are towards deeper waters. Thus, if a data point rests at (2.5, 3) then that population’s thermal envelope has a climate velocity deeper at the rate of 2.5m/yr and that population’s actual range is moving deeper at the rate of 3m/yr. The line plotted on each graph is a 1-to-1 line. If a data point lands exactly on the 1-to-1 line, that population shifted exactly as much (degree north or depth) as it’s thermal envelope.
 
 

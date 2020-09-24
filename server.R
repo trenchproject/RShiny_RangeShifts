@@ -1,8 +1,6 @@
 
 df <- read.csv("rangeshift.csv")
 
-dat = read.csv("Ex3_rangedata.csv")
-
 regions = c("AFSC_Aleutians" = "Aleutians", 
             "AFSC_EBS" = "Eastern Bering Sea", 
             "AFSC_GOA" = "Gulf of Alaska", 
