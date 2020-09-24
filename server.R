@@ -1,16 +1,6 @@
-#
-# Part of trench project (Grasshoppers)
-# author Aji John https://github.com/ajijohn
-# adapted from Shiny 
-# Server
-#
-
-
-rgb.palette <- colorRampPalette(c("red", "orange", "blue"), space = "rgb")
 
 df <- read.csv("rangeshift.csv")
 
-# Do house  keeping
 dat = read.csv("Ex3_rangedata.csv")
 
 regions = c("AFSC_Aleutians" = "Aleutians", 
@@ -18,10 +8,10 @@ regions = c("AFSC_Aleutians" = "Aleutians",
             "AFSC_GOA" = "Gulf of Alaska", 
             "DFO_Newfoundland_Fall" = "Newfoundland", 
             "DFO_ScotianShelf" = "Scotian Shelf", 
-            "DFO_SoGulf" = "SoGulf(?)",        
-            "NEFSC_Spring" = "Spring(?)",
+            "DFO_SoGulf" = "Gulf of St Lawrence",        
+            "NEFSC_Spring" = "US East coast",
             "SEFSC_GOMex" = "Gulf of Mexico",
-            "WestCoast_Tri" = "West coast(?)"
+            "WestCoast_Tri" = "US West coast"
             )
 
 # Define server logic to do filtering
@@ -127,18 +117,6 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        # add_trace(x = c(min(df$obslat1), max(df$obslat1) - 0.02), 
-        #           y = c(min(df$obslat1) + 0.02, max(df$obslat1)), 
-        #           showlegend = FALSE, 
-        #           type = "scatter", 
-        #           mode = "lines", 
-        #           line = list(color = "black", dash = "dot")) %>%
-        # add_trace(x = c(min(df$obslat1) + 0.02, max(df$obslat1)), 
-        #           y = c(min(df$obslat1), max(df$obslat1) - 0.02), 
-        #           showlegend = FALSE, 
-        #           type = "scatter", 
-        #           mode = "lines", 
-        #           line = list(color = "black", dash = "dot")) %>%
         layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.3,0.3)),
                yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15,0.15)))
     } else {
@@ -156,18 +134,6 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        # add_trace(x = c(min(df$obsdepth1), max(df$obsdepth1) - 0.8), 
-        #           y = c(min(df$obsdepth1) + 0.8, max(df$obsdepth1)), 
-        #           showlegend = FALSE, 
-        #           type = "scatter", 
-        #           mode = "lines", 
-        #           line = list(color = "black", dash = "dot")) %>%
-        # add_trace(x = c(min(df$obsdepth1) + 0.8, max(df$obsdepth1)), 
-        #           y = c(min(df$obsdepth1), max(df$obsdepth1) - 0.8), 
-        #           showlegend = FALSE, 
-        #           type = "scatter", 
-        #           mode = "lines", 
-        #           line = list(color = "black", dash = "dot")) %>%
         layout(xaxis = list(title = "Climate velocity (m/yr)", range = c(-8,8)),
                yaxis = list(title = "Observed population range shift (m/yr)", range = c(-8,8)))
     }

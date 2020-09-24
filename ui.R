@@ -1,6 +1,3 @@
-#Range shifts
-#
-
 library(shiny)
 library(tidyverse)
 library(gridExtra)

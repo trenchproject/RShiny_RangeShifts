@@ -34,7 +34,7 @@ In the ocean, currents and tides play a large role in the differences between po
 </p>
 *Shifts in the distribution of marine taxa. (A) Vectors show the average shift in latitude and longitude for each taxon (colors) and the mean shift in each region (black). Insets show the mean (black), maximum (blue), and minimum (red) latitude of detection for Pacific cod (Gadus macrocephalus) in the Gulf of Alaska, big skate (Raja binoculata) on the U.S. West Coast, and American lobster (Homarus americanus) in the Northeast. Gray dashed lines in insets indicate the range of surveyed latitudes. Detailed views are also shown of (B) the Eastern Bering Sea, (C) the Gulf of Mexico, and (D) Newfoundland.*   
 
-  
+
 
 The data was compiled from four decades of scientific surveys of fish and invertebrates from the continental shelves of North America across nine regions spanning ~3.3 million km^2 and 60,394 bottom-trawl samples from 1968 to 2011. These surveys captured 128 million organisms from 580 populations of 360 species or species groups; collectively referred to as “taxa”. Range shifts were measured by tracking the location of the center of population range.    
 
