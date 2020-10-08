@@ -51,8 +51,6 @@ The data show a strong relationship between local climate velocity and marine ra
 
 You can read more about the study in the source publication [here](https://science.sciencemag.org/content/341/6151/1239). And you can explore the data through the [Ocean Adapt website](https://oceanadapt.rutgers.edu/).
 
-[die of suffocation](https://www.nature.com/news/2007/070101/full/070101-5.html)
-
 ### How to use this app
 
 This visualization features two plots. Both show the taxa chosen in the filter on the left side in the region selected. Each data point represents a population of a marine species.    

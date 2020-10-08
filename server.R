@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
   
   output$organisms <- renderUI({
     if (input$taxa == "Fish") {
-      pickerInput("fish", "Select fish", choices = c("All", "Skates" = "skates", "Eels" = "eels", "Sharks" = "sharks"))
+      pickerInput("fish", "Select fish", choices = c("All", "Fish" = "fish", "Skates" = "skates", "Eels" = "eels", "Sharks" = "sharks"))
     } else if (input$taxa == "Crustaceans") {
       pickerInput("crustaceans", "Select crustaceans", choices = c("All", "Crabs" = "crabs", "Prawns" = "prawns", "Lobster" = "lobsters"))
     }
@@ -103,8 +103,8 @@ shinyServer(function(input, output) {
     if (input$switch == "Latitude") {
       fig <- plot_ly() %>%
         add_trace(data = df_refilter(), 
-                  x = ~ obslat1, 
-                  y = ~ gamhlat1, 
+                  x = ~ gamhlat1,  
+                  y = ~ obslat1,
                   name = "Data points", 
                   type = "scatter", 
                   mode = "markers",
@@ -115,13 +115,13 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.3,0.3)),
-               yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15,0.15)))
+        layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.15, 0.15)),
+               yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-.15, 0.3)))
     } else {
       fig <- plot_ly() %>%
         add_trace(data = df_refilter(), 
-                  x = ~ obsdepth1, 
-                  y = ~ gamhdepth1, 
+                  x = ~ gamhdepth1, 
+                  y = ~ obsdepth1, 
                   name = "Data points", 
                   type = "scatter", 
                   mode = "markers",
@@ -132,8 +132,8 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        layout(xaxis = list(title = "Climate velocity (m/yr)", range = c(-8,8)),
-               yaxis = list(title = "Observed population range shift (m/yr)", range = c(-8,8)))
+        layout(xaxis = list(title = "Climate velocity (m/yr)", range = c(-4, 8)),
+               yaxis = list(title = "Observed population range shift (m/yr)", range = c(-8, 8)))
     }
   })
   
