@@ -12,18 +12,9 @@ regions = c("AFSC_Aleutians" = "Aleutians",
             "WestCoast_Tri" = "US West coast"
             )
 
-# Define server logic to do filtering
+
+
 shinyServer(function(input, output) {
-  
-  # dataset <- reactive({       Need to change this to new dataset
-  #  
-  #   #restrict taxa
-  #   dat %>% filter(TaxaGroup %in% input$taxa.sel)
-  #   
-  #   #restrict margin
-  #   dat %>% filter(Margin %in% input$margins.sel)
-  #   })
-  #
   
   output$organisms <- renderUI({
     if (input$taxa == "Fish") {
@@ -62,20 +53,6 @@ shinyServer(function(input, output) {
     }
   })
   
-  # output$RangeShift <- renderPlot({
-  #     
-  #   latPlot <- ggplot(data = df_filter(), aes(x = obslat1, y = gamhlat1)) +
-  #     geom_point() + 
-  #     xlab("Thermal envelope shift (°N/yr)") + ylab("Taxon shift (°N/yr)") +
-  #     theme_bw(base_size = 16) + geom_abline(intercept=0, slope=1, col='red') + xlim(min(df$obslat1), max(df$obslat1)) + ylim(min(df$obslat1), max(df$obslat1))
-  #   
-  #   depthPlot <- ggplot(data = df_filter(), aes(x = obsdepth1, y = gamhdepth1)) +
-  #     geom_point() + 
-  #     xlab("Thermal envelope shift (m/yr)") + ylab("Taxon shift (m/yr)") +
-  #     theme_bw(base_size = 16) + geom_abline(intercept=0, slope=1, col='red') + xlim(min(df$obsdepth1), max(df$obsdepth1)) + ylim(min(df$obsdepth1), max(df$obsdepth1))
-  #   
-  #   grid.arrange(latPlot, depthPlot, ncol=2)
-  # })
   
   output$regionInput <- renderUI({
     choices = unname(regions[unique(df_filter()[,"region"])])
@@ -83,7 +60,6 @@ shinyServer(function(input, output) {
     selectInput("region", "Regions", choices = c("All", choices))
   })
   
-  # Still working on it
   df_refilter <- reactive({
     validate(
       need(input$region, "")
@@ -116,7 +92,7 @@ shinyServer(function(input, output) {
                   type = "scatter", 
                   mode = "lines") %>%
         layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.15, 0.15)),
-               yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-.15, 0.3)))
+               yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15, 0.3)))
     } else {
       fig <- plot_ly() %>%
         add_trace(data = df_refilter(), 
