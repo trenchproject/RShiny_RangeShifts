@@ -18,9 +18,15 @@ shinyServer(function(input, output) {
   
   output$organisms <- renderUI({
     if (input$taxa == "Fish") {
-      pickerInput("fish", "Select fish", choices = c("All", "Fish" = "fish", "Skates" = "skates", "Eels" = "eels", "Sharks" = "sharks"))
+      pickerInput("fish", "Select fish", 
+                  choices = c("Skates" = "skates", "Eels" = "eels", "Sharks" = "sharks", "Others" = "fish"), 
+                  multiple = TRUE, 
+                  selected = c("skates", "eels", "sharks", "fish"))
     } else if (input$taxa == "Crustaceans") {
-      pickerInput("crustaceans", "Select crustaceans", choices = c("All", "Crabs" = "crabs", "Prawns" = "prawns", "Lobster" = "lobsters"))
+      pickerInput("crustaceans", "Select crustaceans", 
+                  choices = c("Crabs" = "crabs", "Prawns" = "prawns", "Lobster" = "lobsters"), 
+                  multiple = TRUE, 
+                  selected = c("crabs", "prawns", "lobsters"))
     }
   })
   
@@ -33,20 +39,14 @@ shinyServer(function(input, output) {
         validate(
           need(input$fish, "")
         )
-        if(input$fish != "All") {
-          filter(df, taxa %in% input$fish)
-        } else {
-          filter(df, taxa %in% c("fish", "skates", "eels", "sharks"))
-        }
+        filter(df, taxa %in% input$fish)
+
       } else if (input$taxa == "Crustaceans") {
         validate(
           need(input$crustaceans, "")
         )
-        if (input$crustaceans == "All") {
-          filter(df, taxa %in% c("crabs", "prawns", "lobsters"))
-        } else {
-          filter(df, taxa %in% input$crustaceans)
-        }
+        filter(df, taxa %in% input$crustaceans)
+        
       } else {
         filter(df, taxa %in% input$taxa)
       }
