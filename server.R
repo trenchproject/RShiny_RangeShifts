@@ -1,5 +1,9 @@
+source("cicerone.R", local = T)
 
 df <- read.csv("rangeshift.csv")
+
+df[df$taxa == "brittle", "taxa"] <- "starfish"
+
 
 regions = c("AFSC_Aleutians" = "Aleutians", 
             "AFSC_EBS" = "Eastern Bering Sea", 
@@ -16,12 +20,14 @@ regions = c("AFSC_Aleutians" = "Aleutians",
 
 shinyServer(function(input, output) {
   
+  observeEvent(input$tour, guide$init()$start())
+  
   output$organisms <- renderUI({
     if (input$taxa == "Fish") {
       pickerInput("fish", "Select fish", 
-                  choices = c("Skates" = "skates", "Eels" = "eels", "Sharks" = "sharks", "Others" = "fish"), 
+                  choices = c("Flatfish" = "flatfish", "Skates" = "skates", "Eels" = "eels", "Sharks" = "sharks", "Others" = "fish"), 
                   multiple = TRUE, 
-                  selected = c("skates", "eels", "sharks", "fish"))
+                  selected = c("flatfish", "skates", "eels", "sharks", "fish"))
     } else if (input$taxa == "Crustaceans") {
       pickerInput("crustaceans", "Select crustaceans", 
                   choices = c("Crabs" = "crabs", "Prawns" = "prawns", "Lobster" = "lobsters"), 

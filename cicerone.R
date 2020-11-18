@@ -1,0 +1,28 @@
+library(cicerone)
+
+guide <- Cicerone$
+  new()$
+  step(
+    el = "plot-wrapper",
+    title = "Plot-1",
+    description = HTML("The plot shows the climate velocity of populations' thermal envelope against the observed shift of populations.<br>
+                       The yellow line represent a 1-to-1 line, which tells you if the population is shifting more or less compared to the thermal envelope.")
+  )$
+  step(
+    el = "switch-wrapper",
+    title = "Latitude/Depth",
+    description = "This button toggles between two plots that show different directions of the shifts. Greater values correspond to further north in the latitude plot and deeper in the depth plot. Keep it at <b>Latitude</b> for now."
+  )$
+  step(
+    el = "plot-wrapper",
+    title = "Plot-2",
+    description = HTML("Hover over the point at (0.04, 0.28). It shows you what species the point represents and which taxa it belongs to. 
+                       We can learn that <em>Anarhichas denticulatus</em> is a fish species, and it shifted 0.28 degrees North per year when its thermal envelope only moved by 0.04 degrees per year.
+                       It is way above the 1-to-1 line.")
+  )$
+  step(
+    el = "sidebar-wrapper",
+    title = "Taxa and regions",
+    description = "This tells you which taxa from which region are plotted.",
+    position = "top"
+  )
