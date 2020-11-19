@@ -1,8 +1,8 @@
 library(shiny)
-#library(tidyverse)
-#library(gridExtra)
 library(plotly)
 library(shinyWidgets)
+library(cicerone)
+library(markdown)
 
 #specify choices
 taxa = c("All", "Fish", "Mollusks" = "mollusks", "Crustaceans", "Starfish/Brittle stars" = "starfish")
@@ -12,7 +12,7 @@ shinyUI <- fluidPage(
   use_cicerone(),
   
   title = "Range shifts",
-
+  
   includeMarkdown("include.md"),
   
   actionBttn(

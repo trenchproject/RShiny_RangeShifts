@@ -1,5 +1,3 @@
-library(cicerone)
-
 guide <- Cicerone$
   new()$
   step(
@@ -23,6 +21,12 @@ guide <- Cicerone$
   step(
     el = "sidebar-wrapper",
     title = "Taxa and regions",
-    description = "This tells you which taxa from which region are plotted.",
+    description = HTML("This tells you which taxa from which region are plotted.<br> 
+                       Let's see how <b>Fish</b> from the <b>Aleutians</b> are doing. Hit next after selecting."),
     position = "top"
+  )$
+  step(
+    el = "plot-wrapper",
+    title = "New plot",
+    description = "Now we see how fish from Aleutians have shifted their range. The thermal envelope in the region seems to be moving slightly to the North and the fish are shifting more or less along with it."
   )
