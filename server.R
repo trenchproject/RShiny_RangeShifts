@@ -17,10 +17,13 @@ regions = c("AFSC_Aleutians" = "Aleutians",
             )
 
 
-
 shinyServer(function(input, output) {
   
   observeEvent(input$tour, guide$init()$start())
+  
+  observeEvent(input$reset, {
+    reset("page")
+  })
   
   output$organisms <- renderUI({
     if (input$taxa == "Fish") {
@@ -33,6 +36,11 @@ shinyServer(function(input, output) {
                   choices = c("Crabs" = "crabs", "Prawns" = "prawns", "Lobster" = "lobsters"), 
                   multiple = TRUE, 
                   selected = c("crabs", "prawns", "lobsters"))
+    } else if (input$taxa == "Mollusks") {
+      pickerInput("mollusks", "Select mollusks", 
+                  choices = c("Squids" = "squids", "Clams" = "clams", "Sea snails" = "sea snails"),
+                  multiple = TRUE,
+                  selected = c("squids", "clams", "sea snails"))
     }
   })
   
@@ -53,6 +61,11 @@ shinyServer(function(input, output) {
         )
         filter(df, taxa %in% input$crustaceans)
         
+      } else if (input$taxa == "Mollusks") {
+        validate(
+          need(input$mollusks, "")
+        )
+        filter(df, taxa %in% input$mollusks)
       } else {
         filter(df, taxa %in% input$taxa)
       }
@@ -97,7 +110,7 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.15, 0.15)),
+        layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.1, 0.15)),
                yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15, 0.3)))
     } else {
       fig <- plot_ly() %>%
@@ -114,10 +127,9 @@ shinyServer(function(input, output) {
                   name = "1:1 line", 
                   type = "scatter", 
                   mode = "lines") %>%
-        layout(xaxis = list(title = "Climate velocity (m/yr)", range = c(-4, 8)),
+        layout(xaxis = list(title = "Climate velocity (m/yr)", range = c(-4, 7)),
                yaxis = list(title = "Observed population range shift (m/yr)", range = c(-8, 8)))
     }
   })
-  
   
 })

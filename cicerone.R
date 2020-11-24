@@ -29,4 +29,9 @@ guide <- Cicerone$
     el = "plot-wrapper",
     title = "New plot",
     description = "Now we see how fish from Aleutians have shifted their range. The thermal envelope in the region seems to be moving slightly to the North and the fish are shifting more or less along with it."
+  )$
+  step(
+    el = "viz-wrapper",
+    title = "End of tour",
+    description = "That's it for a quick tour. Move around the variables and make your own plot!"
   )
