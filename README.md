@@ -6,10 +6,10 @@ The app is one of the materials in [TrEnCh-Ed](https://trench-ed.github.io/#), w
 
 ## Prerequisites for opening in Rstudio
 Git and Rstudio ([Instructions](https://resources.github.com/whitepapers/github-and-rstudio/))  
-Installation of the following R packages: shiny, R.utils, plotly, shinywidgets
+Installation of the following R packages: shiny, R.utils, plotly, shinywidgets, cicerone, markdown, shinyjs, shinyBS
 
 ```
-pkgs <- c("shiny", "R.utils", "plotly", "shinyWidgets")
+pkgs <- c("shiny", "R.utils", "plotly", "shinyWidgets", "cicerone", "markdown", "shinyjs", "shinyBS")
 lapply(pkgs, FUN = function(x) {
     if (!require(x, character.only = TRUE)) {
       install.packages(x, dependencies = TRUE)

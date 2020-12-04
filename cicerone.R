@@ -2,7 +2,7 @@ guide <- Cicerone$
   new()$
   step(
     el = "plot-wrapper",
-    title = "Plot-1",
+    title = "Plot",
     description = HTML("The plot shows the climate velocity of populations' thermal envelope against the observed shift of populations.<br>
                        The yellow line represent a 1-to-1 line, which tells you if the population is shifting more or less compared to the thermal envelope.")
   )$
@@ -13,7 +13,7 @@ guide <- Cicerone$
   )$
   step(
     el = "plot-wrapper",
-    title = "Plot-2",
+    title = "Plot details",
     description = HTML("Hover over the point at (0.04, 0.28). It shows you what species the point represents and which taxa it belongs to. 
                        We can learn that <em>Anarhichas denticulatus</em> is a fish species, and it shifted 0.28 degrees North per year when its thermal envelope only moved by 0.04 degrees per year.
                        It is way above the 1-to-1 line.")
@@ -22,7 +22,7 @@ guide <- Cicerone$
     el = "sidebar-wrapper",
     title = "Taxa and regions",
     description = HTML("This tells you which taxa from which region are plotted.<br> 
-                       Let's see how <b>Fish</b> from the <b>Aleutians</b> are doing. Hit next after selecting."),
+                       Let's see how <b>Fish</b> from the <b>Aleutians</b> are doing. Select <b>Fish</b> under taxa and <b>Aleutians</b> under regions. Then hit next."),
     position = "top"
   )$
   step(

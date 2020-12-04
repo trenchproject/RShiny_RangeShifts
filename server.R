@@ -17,7 +17,7 @@ regions = c("AFSC_Aleutians" = "Aleutians",
             )
 
 
-shinyServer(function(input, output) {
+shinyServer <- function(input, output) {
   
   observeEvent(input$tour, guide$init()$start())
   
@@ -132,4 +132,4 @@ shinyServer(function(input, output) {
     }
   })
   
-})
+}
