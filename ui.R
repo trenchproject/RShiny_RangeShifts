@@ -12,6 +12,7 @@ taxa = c("All", "Fish", "Mollusks", "Crustaceans", "Starfish/Brittle stars" = "s
 # Define UI 
 shinyUI <- fluidPage(id = "page",
   use_cicerone(),
+  setBackgroundColor(color = "#C7DAE0"),
   useShinyjs(),
   
   title = "Range shifts",

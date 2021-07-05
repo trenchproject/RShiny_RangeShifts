@@ -1,11 +1,13 @@
 ---
 title: "include.md"
-author: "CJ Battey and LB Buckley and Abby Meyer"
+author: "TrEnCh project"
 date: "9/18/2020"
 output: html_document
 ---
 
-## Range Shifts: How Marine Taxa Track A Shifting Climate
+<img src="TrenchEdLogo.png"/, height="150 px", align="left">
+
+## Do Marine Taxa Track Climate Change?
 
 Adapted from Pinsky et al. 2013. [Marine Taxa Track Local Climate Velocities.](https://science.sciencemag.org/content/341/6151/1239)   
 *Image source: Food and Environment Reporting Network*    
