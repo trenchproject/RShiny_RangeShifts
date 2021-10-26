@@ -44,7 +44,7 @@ There are many reasons why a population’s climate velocity can be moving in an
 ### The data
 
 <p align="center">
-<img src="https://science.sciencemag.org/content/sci/341/6151/1239/F1.large.jpg"/, width="800px", align="center">
+<img src="data.jpg"/, width="800px", align="center">
 </p>
 *Shifts in the distribution of marine taxa. (A) Vectors show the average shift in latitude and longitude for each taxon (colors) and the mean shift in each region (black). Insets show the mean (black), maximum (blue), and minimum (red) latitude of detection for Pacific cod (Gadus macrocephalus) in the Gulf of Alaska, big skate (Raja binoculata) on the U.S. West Coast, and American lobster (Homarus americanus) in the Northeast. Gray dashed lines in insets indicate the range of surveyed latitudes. Detailed views are also shown of (B) the Eastern Bering Sea, (C) the Gulf of Mexico, and (D) Newfoundland. From Pinsky et al. (2013).*   
 
