@@ -16,7 +16,7 @@ for(i in 1:nrow(df)) {
     df[i,"taxa2"] <- "fish"
   } else if (df[i,"taxa"] == "crabs" || df[i,"taxa"] == "prawns" || df[i,"taxa"] == "lobster") {
     df[i,"taxa2"] <- "crustaceans"
-  } else if (df[i,"taxa"] == "squids" || df[i,"taxa"] == "clams" || df[i,"taxa"] == "sea snails") {
+  } else if (df[i,"taxa"] == "squids" || df[i,"taxa"] == "clams" || df[i,"taxa"] == "sea snails" || df[i,"taxa"] == "lobsters") {
     df[i,"taxa2"] <- "mollusks"
   }
 }
@@ -107,7 +107,7 @@ shinyServer <- function(input, output) {
     }
   })
   
-  viridis <- c(viridis_pal(option = "D")(5)[[1]], viridis_pal(option = "D")(5)[[2]],viridis_pal(option = "D")(5)[[3]],viridis_pal(option = "D")(5)[[4]],viridis_pal(option = "D")(5)[[5]])
+  viridis <- c(viridis_pal(option = "D")(6)[[1]], viridis_pal(option = "D")(6)[[3]],viridis_pal(option = "D")(6)[[4]],viridis_pal(option = "D")(6)[[5]],viridis_pal(option = "D")(6)[[6]])
   
   output$Rangeshift <- renderPlotly({
     validate(
