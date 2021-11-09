@@ -1,8 +1,25 @@
+library(dplyr)
+library(viridis)
+
 source("cicerone.R", local = T)
 
 df <- read.csv("rangeshift.csv")
 
 df[df$taxa == "brittle", "taxa"] <- "starfish"
+
+df <- df %>% mutate(taxa2 = taxa)
+
+for(i in 1:nrow(df)) {
+  if (is.null(df[i,"taxa"]) || is.na(df[i,"taxa"])){
+    df[i,"taxa2"] <- ""
+  }else if (df[i,"taxa"] == "flatfish" || df[i,"taxa"] == "skates" || df[i,"taxa"] == "eels" || df[i,"taxa"] == "sharks") {
+    df[i,"taxa2"] <- "fish"
+  } else if (df[i,"taxa"] == "crabs" || df[i,"taxa"] == "prawns" || df[i,"taxa"] == "lobster") {
+    df[i,"taxa2"] <- "crustaceans"
+  } else if (df[i,"taxa"] == "squids" || df[i,"taxa"] == "clams" || df[i,"taxa"] == "sea snails") {
+    df[i,"taxa2"] <- "mollusks"
+  }
+}
 
 
 regions = c("AFSC_Aleutians" = "Aleutians", 
@@ -14,7 +31,7 @@ regions = c("AFSC_Aleutians" = "Aleutians",
             "NEFSC_Spring" = "US East coast",
             "SEFSC_GOMex" = "Gulf of Mexico",
             "WestCoast_Tri" = "US West coast"
-            )
+)
 
 
 shinyServer <- function(input, output) {
@@ -54,7 +71,7 @@ shinyServer <- function(input, output) {
           need(input$fish, "")
         )
         filter(df, taxa %in% input$fish)
-
+        
       } else if (input$taxa == "Crustaceans") {
         validate(
           need(input$crustaceans, "")
@@ -90,37 +107,61 @@ shinyServer <- function(input, output) {
     }
   })
   
+  viridis <- c(viridis_pal(option = "D")(5)[[1]], viridis_pal(option = "D")(5)[[2]],viridis_pal(option = "D")(5)[[3]],viridis_pal(option = "D")(5)[[4]],viridis_pal(option = "D")(5)[[5]])
+  
   output$Rangeshift <- renderPlotly({
     validate(
       need(df_refilter(), "")
     )
-
+    
     if (input$switch == "Latitude") {
-      fig <- plot_ly() %>%
-        add_trace(data = df_refilter(), 
-                  x = ~ gamhlat1,  
-                  y = ~ obslat1,
-                  name = "Data points", 
-                  type = "scatter", 
-                  mode = "markers",
-                  text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa"]), "<br>"),
-                  hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
-        add_trace(x = c(min(df$obslat1), max(df$obslat1)), 
-                  y = c(min(df$obslat1), max(df$obslat1)), 
-                  name = "1:1 line", 
-                  type = "scatter", 
-                  mode = "lines") %>%
-        layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.1, 0.15)),
-               yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15, 0.3)))
+      if(input$taxa == "All"){
+        fig <- plot_ly() %>%
+          add_trace(data = df_refilter(), 
+                    x = ~ gamhlat1,  
+                    y = ~ obslat1,
+                    color = ~ taxa2,
+                    colors = viridis,
+                    type = "scatter", 
+                    mode = "markers",
+                    text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa2"]), "<br>"),
+                    hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
+          add_trace(x = c(min(df$obslat1), max(df$obslat1)), 
+                    y = c(min(df$obslat1), max(df$obslat1)), 
+                    name = "1:1 line", 
+                    type = "scatter", 
+                    mode = "lines") %>%
+          layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.1, 0.15)),
+                 yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15, 0.3)))
+      } else {
+        fig <- plot_ly() %>%
+          add_trace(data = df_refilter(), 
+                    x = ~ gamhlat1,  
+                    y = ~ obslat1,
+                    color = ~ taxa,
+                    colors = viridis,
+                    type = "scatter", 
+                    mode = "markers",
+                    text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa2"]), "<br>"),
+                    hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
+          add_trace(x = c(min(df$obslat1), max(df$obslat1)), 
+                    y = c(min(df$obslat1), max(df$obslat1)), 
+                    name = "1:1 line", 
+                    type = "scatter", 
+                    mode = "lines") %>%
+          layout(xaxis = list(title = "Climate velocity (°N/yr)", range = c(-0.1, 0.15)),
+                 yaxis = list(title = "Observed population range shift (°N/yr)", range = c(-0.15, 0.3)))
+      }
     } else {
       fig <- plot_ly() %>%
         add_trace(data = df_refilter(), 
                   x = ~ gamhdepth1, 
                   y = ~ obsdepth1, 
-                  name = "Data points", 
+                  color = ~ taxa2,
+                  colors = viridis,
                   type = "scatter", 
                   mode = "markers",
-                  text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa"]), "</br>"),
+                  text = paste0(df_refilter()[,"name"], "<br>Taxa: ", R.utils::capitalize(df_refilter()[, "taxa2"]), "</br>"),
                   hovertemplate = "%{text} (%{x:.2f}, %{y:.2f})") %>%
         add_trace(x = c(min(df$obsdepth1), max(df$obsdepth1)), 
                   y = c(min(df$obsdepth1), max(df$obsdepth1)), 
