@@ -6,37 +6,36 @@ library(markdown)
 library(shinyjs)
 library(shinyBS)
 
-#specify choices
-taxa = c("All", "Fish", "Mollusks", "Crustaceans", "Starfish/Brittle stars" = "starfish")
+# specify choices
+taxa <- c("All", "Fish", "Mollusks", "Crustaceans", "Starfish/Brittle stars" = "starfish")
 
-# Define UI 
-shinyUI <- fluidPage(id = "page",
+# Define UI
+shinyUI <- fluidPage(
+  id = "page",
   use_cicerone(),
-  setBackgroundColor(color = "#C7DAE0"),
+  setBackgroundColor(color = "white"),
   useShinyjs(),
-  
   title = "Range shifts",
-  
+  tags$head(
+    tags$link(rel = "icon", href = "favicon.ico", type = "image/x-icon")  ),
   includeMarkdown("include.md"),
-  
   actionBttn(
     inputId = "reset",
-    label = "Reset", 
+    label = "Reset",
     style = "material-flat",
     color = "danger",
     size = "xs"
   ),
   bsTooltip("reset", "If you have already changed the variables, reset them to default here before starting the tour."),
-  
   actionBttn(
     inputId = "tour",
-    label = "Take a tour!", 
+    label = "Take a tour!",
     style = "material-flat",
     color = "success",
     size = "sm"
   ),
   hr(),
- 
+
   # Visualization of expected vs observed range shifts
   div(
     id = "viz-wrapper",
@@ -51,7 +50,6 @@ shinyUI <- fluidPage(id = "page",
           width = 3
         )
       ),
-      
       mainPanel(
         div(
           id = "switch-wrapper",
@@ -65,7 +63,5 @@ shinyUI <- fluidPage(id = "page",
       )
     )
   ),
-  
   hr()
-
 )

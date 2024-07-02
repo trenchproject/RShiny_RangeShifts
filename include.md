@@ -5,9 +5,10 @@ date: "9/18/2020"
 output: html_document
 ---
 
-<img src="TrenchEdLogo.png"/, height="150 px", align="left">
-
-## Do Marine Taxa Track Climate Change?
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="TrenchEdLogo.png" height="120px" style="margin-right: 20px;">
+  <h1>Do Marine Taxa Track Climate Change?</h1>
+</div>
 
 Adapted from Pinsky et al. 2013. [Marine Taxa Track Local Climate Velocities.](https://science.sciencemag.org/content/341/6151/1239)   
 *Image source: Food and Environment Reporting Network*    
